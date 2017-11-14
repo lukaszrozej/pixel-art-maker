@@ -3,6 +3,9 @@ $(function() {
 		makeGrid();
 		e.preventDefault();
 	});
+	$('#pixel_canvas').click(function(e) {
+		$(e.target).css('background-color', $('#colorPicker').val());
+	});
 });
 
 function makeGrid() {
