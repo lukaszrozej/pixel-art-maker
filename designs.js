@@ -1,5 +1,8 @@
 $(function() {
-	$("#sizePicker").submit(makeGrid);
+	$("#sizePicker").submit(function(e) {
+		makeGrid();
+		e.preventDefault();
+	});
 });
 
 function makeGrid() {
