@@ -1,10 +1,11 @@
 // Select color input
-// Select size input
+
+$("#sizePicker").submit(makeGrid);
 
 // When size is submitted by the user, call makeGrid()
 
 function makeGrid() {
 
-// Your code goes here!
+	alert('Making grid...');
 
 }
