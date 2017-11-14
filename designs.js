@@ -1,4 +1,6 @@
-$("#sizePicker").submit(makeGrid);
+$(function() {
+	$("#sizePicker").submit(makeGrid);
+});
 
 function makeGrid() {
 	const height = Number($('#input_height').val());
