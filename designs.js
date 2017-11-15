@@ -3,9 +3,12 @@ $(function() {
 		makeGrid();
 		e.preventDefault();
 	});
-	$('#pixel_canvas').click(function(e) {
+	$('#pixel_canvas').on('click', 'td', function(e) {
 		$(e.target).css('background-color', $('#colorPicker').val());
 	});
+	// $('#pixel_canvas').on('click', 'td', function(e) {
+ //        $(e.target).css('background-color', $('#colorPicker').val() );
+ //    });
 });
 
 function makeGrid() {
