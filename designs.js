@@ -7,10 +7,12 @@ $(function() {
 		makeGrid(width, height);
 		e.preventDefault();
 	});
-	$('#pixel_canvas').on('click', 'td', function(e) {
-		$(e.target).css('background-color', $('#colorPicker').val());
-	});
 });
+
+function changeColor(e) {
+	$(e.target).css('background-color', $('#colorPicker').val());
+	console.log('bla')
+}
 
 function makeGrid(width, height) {
 	canvas.empty();
@@ -18,7 +20,7 @@ function makeGrid(width, height) {
 		const row = $('<tr></tr>');
 		for(let j = 0; j < width; j++) {
 			const cell = $('<td></td>');
-			// cell.on
+			cell.on('mousedown', changeColor);
 			row.append(cell);
 		}
 		canvas.append(row);
