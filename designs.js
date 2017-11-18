@@ -15,9 +15,9 @@ $(function() {
 function makeGrid(width, height) {
 	canvas.empty();
 	for(let i = 0; i < height; i++) {
-		let row = $('<tr></tr>');
+		const row = $('<tr></tr>');
 		for(let j = 0; j < width; j++) {
-			let cell = $('<td></td>');
+			const cell = $('<td></td>');
 			// cell.on
 			row.append(cell);
 		}
