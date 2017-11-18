@@ -17,6 +17,12 @@ $(function() {
 	   tool = $('input[name=tool]:checked').val();
 	   console.log(tool);
 	});
+	$('#undo').on('click', function() {
+		console.log('undo');
+	});
+	$('#redo').on('click', function() {
+		console.log('redo');
+	});
 	// mouseup on body to handle a situation
 	// when user drags the mouse out of the table and then releases it
 	$('body').on('mouseup', stopPainting);
