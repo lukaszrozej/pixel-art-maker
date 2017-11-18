@@ -1,3 +1,5 @@
+const canvas = $('#pixel_canvas');
+
 $(function() {
 	$("#sizePicker").submit(function(e) {
 		const height = Number($('#input_height').val());
@@ -11,25 +13,14 @@ $(function() {
 });
 
 function makeGrid(width, height) {
-	// const row = '<tr>' + '<td></td>'.repeat(width) + '</td>';
-	// const rows = row.repeat(height);
-	// $('#pixel_canvas').empty().append(rows);
-	let rows = '';
+	canvas.empty();
 	for(let i = 0; i < height; i++) {
-		let row = '<tr>';
+		let row = $('<tr></tr>');
 		for(let j = 0; j < width; j++) {
-			row += '<td></td>';
+			let cell = $('<td></td>');
+			// cell.on
+			row.append(cell);
 		}
-		row += '</tr>';
-		rows += row;
+		canvas.append(row);
 	}
-	let oldRows = $('#pixel_canvas').children();
-	for(let i = 0; i < oldRows.length; i++) {
-		oldRows[i].remove();
-		console.log(i)
-		console.log($('#pixel_canvas').children())
-		console.log(oldRows)
-	}	
-	$('#pixel_canvas').append(rows);
-
 }
