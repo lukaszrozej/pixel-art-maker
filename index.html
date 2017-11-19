@@ -25,8 +25,10 @@
     <input type="color" id="colorPicker">
 
     <form id="tools">
-        <input type="radio" name="tool" value="brush" checked>
-        <input type="radio" name="tool" value="fill">
+        <label for="brush">Brush</label>
+        <input type="radio" name="tool" id="brush" value="brush" checked>
+        <label for="fill">Fill</label>
+        <input type="radio" name="tool" id="fill" value="fill">
     </form>
 
     <button id="undo" disabled>Undo</button>
