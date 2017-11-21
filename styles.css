@@ -45,6 +45,12 @@ input[type=number] {
     width: 6em;
 }
 
+/*********************************************************/
+
+form#tools {
+    display: inline-block;
+}
+
 label {
   display: none;
 }
@@ -93,6 +99,7 @@ input[name='tool'] {
   -ms-appearance: none;
   appearance: none;
   outline: none;
+  margin: 0;
 }
 
 input[name='tool']:after {
