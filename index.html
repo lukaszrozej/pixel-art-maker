@@ -24,17 +24,17 @@
     </form>
 
     <h2>Pick A Color</h2>
-    <input type="color" id="colorPicker">
+    <input type="color" id="colorPicker" title="Pick a color">
 
     <form id="tools">
         <label for="brush">Brush</label>
-        <input type="radio" name="tool" id="brush" value="brush" checked>
+        <input type="radio" name="tool" id="brush" value="brush" title="Brush" checked>
         <label for="fill">Fill</label>
-        <input type="radio" name="tool" id="fill" value="fill">
+        <input type="radio" name="tool" id="fill" value="fill" title="Fill">
     </form>
 
-    <button id="undo" disabled>Undo</button>
-    <button id="redo" disabled>Redo</button>
+    <button id="undo" title="Undo" disabled>Undo</button>
+    <button id="redo" title="Redo" disabled>Redo</button>
 
     <h2>Design Canvas</h2>
     <table id="pixel_canvas"></table>
