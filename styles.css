@@ -51,11 +51,21 @@ label {
 
 button {
   font-size: 0;
+  background-color: #fff;
+
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  width: 60px;
+  height: 60px;
+  padding: 15px 0 10px 0;
+
 }
 
 button:after {
   font-family: 'FontAwesome';
   font-size: 30px;
+  text-align: center;
+  color: #888;
 }
 
 #undo:after {
