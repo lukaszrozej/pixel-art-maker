@@ -50,27 +50,18 @@ input[name='tool'] {
 }
 input[name='tool']:after {
   font-family: 'FontAwesome';
-  display: inline-block;
   text-align: center;
-  font-size: 80px;
-  content: attr(data-icon);
-  padding: 20px 20px;
-  border-radius: 15px;
-  color: rgba(0, 0, 0, 0.4);
-  -webkit-transition: box-shadow 1s, color 1s;
-  transition: box-shadow 1s, color 1s;
+  font-size: 40px;
+  color: #888;
 }
 input[name='tool']:checked:after {
-  box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.4);
-  color: rgba(255, 255, 255, 0.6);
+  color: #000;
 }
 
 #brush:after {
   content: "\f1fc";
-  font-family: 'FontAwesome';
 }
 
 #fill:after {
   content: "\f043";
-  font-family: 'FontAwesome';
 }
