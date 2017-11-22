@@ -16,7 +16,7 @@ $(function() {
 	let tool = 'brush';
 
 
-	$("#sizePicker").submit(function(e) {
+	$("#size-picker").submit(function(e) {
 		height = Number($('#input_height').val());
 		width = Number($('#input_width').val());
 		makeGrid(width, height);

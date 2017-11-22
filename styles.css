@@ -5,11 +5,12 @@
 
 body {
     text-align: center;
+    background: #eee;
 }
 
 h1 {
     font-family: Monoton;
-    font-size: 70px;
+    font-size: 2em;
     margin: 0.2em;
 }
 
@@ -41,18 +42,26 @@ td {
     background-color: #fff;
 }
 
+
+/**********************************************************/
+/* Size Picker */
+
+#size-pcker {
+  display: inline-block;
+  background: rgba(0,0,0,0.5);
+  /*text-align: center;*/
+}
+
 input[type=number] {
-    width: 6em;
+    width: 3em;
+    display: block;
+    margin: 0 auto;
 }
 
-/*********************************************************/
+/**********************************************************/
 
-form#tools {
+#tools {
     display: inline-block;
-}
-
-label {
-  display: none;
 }
 
 button {
@@ -61,17 +70,24 @@ button {
 
   border: 2px solid #ccc;
   border-radius: 15px;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   padding: 15px 0 10px 0;
-
 }
 
 button:after {
   font-family: 'FontAwesome';
   font-size: 30px;
   text-align: center;
+  color: #000;
+}
+
+button:disabled:after {
   color: #888;
+}
+
+#new-grid:after {
+  content: "\f00a"
 }
 
 #undo:after {
@@ -83,8 +99,8 @@ button:after {
 }
 
 #colorPicker {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background-color: #fff;
     border: 2px solid #ccc;
     border-radius: 15px;
@@ -109,8 +125,8 @@ input[name='tool']:after {
   color: #888;
   border: 2px solid #ccc;
   border-radius: 15px;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   padding: 15px 0 10px 0;
   display: block;
 }
