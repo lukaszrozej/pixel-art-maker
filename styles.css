@@ -46,10 +46,12 @@ td {
 /**********************************************************/
 /* Size Picker */
 
-#size-pcker {
-  display: inline-block;
-  background: rgba(0,0,0,0.5);
-  /*text-align: center;*/
+#size-picker {
+  background: #fff;
+  padding: 1em;
+  width: 20em;
+  margin: 0 auto;
+  border-radius: 15px;
 }
 
 input[type=number] {
@@ -59,10 +61,28 @@ input[type=number] {
 }
 
 /**********************************************************/
+/* Controls */
+
+#controls {
+  background: #fff;
+  border-radius: 15px;
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/**********************************************************/
+/* Tools */
 
 #tools {
     display: inline-block;
 }
+
+fieldset {
+  border: 2px solid #ccc;
+  border-radius: 15px;
+}
+
 
 button {
   font-size: 0;
