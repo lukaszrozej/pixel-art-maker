@@ -25,9 +25,11 @@ $(function() {
 	$('#colorPicker').on('change', function() {
 		newColor = hexToRGB($(this).val());
 	});
-	$('#tools').on('change', function() {
+
+	$('input[name=tool]').on('change', function() {
 	   tool = $('input[name=tool]:checked').val();
 	});
+
 	$('#undo').on('click', function() {
 		momentInHistory--;
 		const action = history[momentInHistory];

@@ -75,19 +75,68 @@ input[type=number] {
 }
 
 /**********************************************************/
-/* Tools */
+/* Buttons */
 
-#tools {
-    display: inline-block;
-}
-
-fieldset {
+.button {
+  outline: none;
+  display: block;
+  margin: 0;
+  background-color: #fff;
   border: 2px solid #ccc;
   border-radius: 15px;
+  width: 70px;
+  height: 70px;
+  padding: 10px 10px 10px 10px;
+  font-family: 'FontAwesome';
+  font-size: 30px;
+  text-align: center;
+  color: #000;
+}
+
+.button span {
+  display: none;
+}
+
+.button:disabled {
+  color: #888;
+}
+
+input[name='tool'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  color: #888;
+  padding: 15px 0 10px 0;
+}
+
+input[name='tool']:checked {
+  color: #000;
+}
+
+#newGrid:after {
+ content: "\f00a"
+}
+
+#brush:after {
+  content: "\f1fc";
+}
+
+#fill:after {
+  content: "\f043";
+}
+
+#undo:after {
+  content: "\f112";
+}
+
+#redo:after {
+  content: "\f064";
 }
 
 
-button {
+/*button {
   font-size: 0;
   background-color: #fff;
 
@@ -107,10 +156,6 @@ button:after {
 
 button:disabled:after {
   color: #888;
-}
-
-#new-grid:after {
-  content: "\f00a"
 }
 
 #undo:after {
@@ -165,3 +210,9 @@ input[name='tool']:checked:after {
 #fill:after {
   content: "\f043";
 }
+
+#new-grid:after {
+  content: "\f00a"
+}
+
+*/
