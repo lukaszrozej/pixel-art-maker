@@ -64,7 +64,7 @@ input[type=number] {
 /* Controls */
 
 #controls {
-  background: #fff;
+  background: #ddd;
   border-radius: 15px;
   width: 500px;
   margin: 0 auto;
@@ -77,12 +77,11 @@ input[type=number] {
 /**********************************************************/
 /* Buttons */
 
-.button {
+.button,
+.tool {
   outline: none;
   display: block;
   margin: 0;
-  background-color: #fff;
-  border: 2px solid #ccc;
   border-radius: 15px;
   width: 70px;
   height: 70px;
@@ -90,29 +89,50 @@ input[type=number] {
   font-family: 'FontAwesome';
   font-size: 30px;
   text-align: center;
+}
+
+.button {
+  background: #f8f8f8;
+  border: 2px solid #ccc;
   color: #000;
 }
 
-.button span {
-  display: none;
+.button:hover {
+  background: #fff;
+}
+
+.button:active {
+  background: #eee;
 }
 
 .button:disabled {
+  background: inherit;
   color: #888;
 }
 
-input[name='tool'] {
+.tool {
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  color: #888;
+  color: rgba(0, 0, 0, 0.6);
   padding: 15px 0 10px 0;
+  border: none;
+  background: inherit;
 }
 
-input[name='tool']:checked {
-  color: #000;
+.tool:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tool:checked {
+  color: rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+.button span {
+  display: none;
 }
 
 #newGrid:after {
