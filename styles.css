@@ -5,69 +5,35 @@
 
 body {
     text-align: center;
-    background: #eee;
+    background: #94af9e;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
-    font-family: Monoton;
-    font-size: 2em;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.6);
     margin: 0.2em;
 }
 
 h2 {
-    margin: 1em 0 0.25em;
+  margin: 0 0 1em 0;
+  font-size: 1em;
 }
 
-h2:first-of-type {
-    margin-top: 0.5em;
-}
-
-table,
-tr,
-td {
-    border: 1px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    margin: 0 auto;
-}
-
-tr {
-    height: 20px;
-}
-
-td {
-    width: 20px;
-    background-color: #fff;
-}
-
-
-/**********************************************************/
-/* Size Picker */
-
-#size-picker {
-  background: #fff;
-  padding: 1em;
-  width: 20em;
-  margin: 0 auto;
+#size-picker,
+#controls,
+#canvas {
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
-}
-
-input[type=number] {
-    width: 3em;
-    display: block;
-    margin: 0 auto;
+  box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.6);
 }
 
 /**********************************************************/
 /* Controls */
 
 #controls {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
   width: 500px;
-  margin: 0 auto;
+  margin: 0 auto 1em;
   padding: 10px;
   display: flex;
   align-items: center;
@@ -81,7 +47,7 @@ input[type=number] {
 .tool {
   outline: none;
   display: block;
-  background: inherit;
+  background: none;
   margin: 0;
   border-radius: 15px;
   width: 70px;
@@ -92,24 +58,25 @@ input[type=number] {
   text-align: center;
 }
 
-.button {
-  /*background: #f8f8f8;*/
-  border: 2px solid #ccc;
-  color: #000;
+.button,
+.button:hover:active {
+  border: 2px solid rgba(0, 0, 0, 0.4);
+  background: none;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .button:hover {
-  background: #fff;
-}
-
-.button:active {
-  background: #eee;
+  border-color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .button:disabled {
-  background: inherit;
-  color: #888;
+  border: none;
+  color: rgba(0, 0, 0, 0.2);
+  background: none;
 }
+
 
 .tool {
   -webkit-appearance: none;
@@ -120,7 +87,6 @@ input[type=number] {
   color: rgba(0, 0, 0, 0.6);
   padding: 15px 0 10px 0;
   border: none;
-  /*background: inherit;*/
 }
 
 .tool:hover {
@@ -154,4 +120,82 @@ input[type=number] {
 
 #redo:after {
   content: "\f064";
+}
+
+/**********************************************************/
+/* Size Picker */
+
+#size-picker {
+  padding: 1em;
+  width: 20em;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 1.5em;
+}
+
+#size-picker h2 {
+  flex-basis: 100%;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 1em;
+  width: 8em;
+  flex-basis: 40%;
+}
+
+input[type=number] {
+  outline: none;
+  width: 3em;
+  margin: 0 auto;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  font-size: inherit;
+}
+
+input[type=number]:hover,
+input[type=number]:focus {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#size-picker .button {
+  display: inline-block;
+  width: 8em;
+  height: 3em;
+  font-size: inherit;
+  flex-basis: 40%;
+}
+
+/**********************************************************/
+/* Canvas */
+
+#canvas {
+  display: inline-block;
+  padding: 1em;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 1.5em;
+}
+
+table,
+tr,
+td {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+tr {
+    height: 20px;
+}
+
+td {
+    width: 20px;
+    background-color: #fff;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pixel Art Maker!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script
@@ -28,17 +28,22 @@
 
     <form id="size-picker">
         <h2>Choose Grid Size</h2>
-        <label for="width">Width:</label>
-        <input type="number" id="input_width" name="width" min="1" value="10">
-        <label for="height">Height:</label>
-        <input type="number" id="input_height" name="height" min="1" value="10">
-        <button type="submit">Create</button>
-        <button type="submit">Cancell</button>
+        <label>
+          Width:
+          <input type="number" id="input_width" name="width" min="1" value="10">
+        </label>
+        <label>
+          Height:
+          <input type="number" id="input_height" name="height" min="1" value="10">
+        </label>
+        <button type="submit" class="button">Create</button>
+        <button type="submit" class="button">Cancell</button>
     </form>
 
-    <h2>Design Canvas</h2>
-    <table id="pixel_canvas"></table>
-
+    <div id="canvas">
+        <h2>Design Canvas</h2>
+        <table id="pixel_canvas"></table>
+    </div>
     <script src="designs.js"></script>
 </body>
 </html>
