@@ -9,17 +9,27 @@ $(function() {
 
 	let newColor = hexToRGB($('#colorPicker').val());
 
-	let height = 0;
-	let width = 0;
+	let height = 20;
+	let width = 20;
 
 	let isPainting = false;
 	let tool = 'brush';
 
+	makeGrid(width,height);
+
+	$('#newGrid').on('click', function() {
+		$('#canvas').slideUp('slow', function() {
+			$("#size-picker").slideDown('slow');
+		});
+	});
 
 	$("#size-picker").submit(function(e) {
 		height = Number($('#input_height').val());
 		width = Number($('#input_width').val());
 		makeGrid(width, height);
+		$('#size-picker').slideUp('slow', function() {
+			$('#canvas').slideDown('slow');
+		});
 		e.preventDefault();
 	});
 	$('#colorPicker').on('change', function() {

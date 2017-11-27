@@ -134,6 +134,8 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-evenly;
   font-size: 1.5em;
+
+  display: none;
 }
 
 #size-picker h2 {
