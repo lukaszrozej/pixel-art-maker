@@ -73,7 +73,7 @@ $(function() {
 	// *************************************
 	// Painting functions
 
-	function changeColor(cell, newColor) {
+	function changeColor(cell) {
 		const oldColor = cell.css('background-color');
 		if (oldColor === newColor) {
 			return;
@@ -90,7 +90,7 @@ $(function() {
 		const cell = $(e.target);
 		if (tool === 'brush') {
 			currentAction = [];
-			changeColor(cell, newColor);
+			changeColor(cell);
 		}
 		if (tool === 'line') {
 			[x0, y0] = coordinatesFromCell(cell);
@@ -106,7 +106,7 @@ $(function() {
 		}
 		const cell = $(e.target);
 		if (tool === 'brush') {
-			changeColor(cell, newColor);
+			changeColor(cell);
 		}
 		if (tool === 'line') {
 			undoAction(currentAction);
@@ -135,7 +135,7 @@ $(function() {
 		recursiveFill(firstCell);
 
 		function recursiveFill(cell) {
-			changeColor(cell, newColor);
+			changeColor(cell);
 			const [x, y] = coordinatesFromCell(cell);
 			if (x > 0) {
 				const leftCell = cellFromCoordinates(x-1, y);
@@ -175,7 +175,7 @@ $(function() {
 		let err = dx - dy;
 
 		currentAction = [];
-		changeColor(cellFromCoordinates(x0, y0), newColor);
+		changeColor(cellFromCoordinates(x0, y0));
 
 		while((x0 != x1) || (y0 != y1)) {
 			let e2 = 2*err;
@@ -187,7 +187,7 @@ $(function() {
 				err += dx;
 				y0  += sy;
 			}
-			changeColor(cellFromCoordinates(x0, y0), newColor);
+			changeColor(cellFromCoordinates(x0, y0));
 		}
 	}
 
