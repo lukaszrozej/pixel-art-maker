@@ -52,7 +52,7 @@ $(function() {
 	}
 
 	// *************************************
-	// History functions
+	// Action functions
 
 	function recordCurrentAction() {
 		if (momentInHistory < history.length) {
@@ -62,6 +62,12 @@ $(function() {
 		momentInHistory++;
 		$('#undo').removeAttr('disabled');
 		$('#redo').attr('disabled', 'disabled');
+	}
+
+	function undoAction(action) {
+		for(item of action) {
+			item.cell.css('background-color', item.oldColor);
+		}
 	}
 
 	// *************************************
@@ -103,9 +109,7 @@ $(function() {
 			changeColor(cell, newColor);
 		}
 		if (tool === 'line') {
-			for(item of currentAction) {
-				item.cell.css('background-color', item.oldColor);
-			}
+			undoAction(currentAction);
 			const [x1, y1] = coordinatesFromCell(cell);
 			line(x0, y0, x1, y1);
 		}
@@ -245,9 +249,7 @@ $(function() {
 	$('#undo').on('click', function() {
 		momentInHistory--;
 		const action = history[momentInHistory];
-		for(item of action) {
-			item.cell.css('background-color', item.oldColor);
-		}
+		undoAction(action);
 		if (momentInHistory === 0) {
 			$('#undo').attr('disabled', 'disabled');
 		}
