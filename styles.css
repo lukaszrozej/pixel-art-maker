@@ -145,6 +145,13 @@ h2 {
   content: "redo";
 }
 
+hr {
+  width: 0;
+  height: 60px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 0 10px;
+}
+
 /**********************************************************/
 /* Size Picker */
 

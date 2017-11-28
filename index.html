@@ -16,15 +16,17 @@
 
     <div id="controls">
       <button id="new-grid" class="button" title="Create new grid"><span>Create New Grid</span></button>
+      <button id="undo" class="button" title="Undo" disabled><span>Undo</span></button>
+      <button id="redo" class="button" title="Redo" disabled><span>Redo</span></button>
 
       <input type="color" id="colorPicker"  class="button" title="Pick a color">
+
+      <hr>
 
       <input type="radio" name="tool" id="brush"  class="tool" value="brush" title="Brush" checked>
       <input type="radio" name="tool" id="fill"  class="tool" value="fill" title="Fill">
       <input type="radio" name="tool" id="line"  class="tool" value="line" title="Line">
 
-      <button id="undo" class="button" title="Undo" disabled><span>Undo</span></button>
-      <button id="redo" class="button" title="Redo" disabled><span>Redo</span></button>
     </div>
 
     <form id="size-picker">
