@@ -1,6 +1,6 @@
 $(function() {
 
-	const canvas = $('#pixel_canvas');
+	const canvas = $('#pixel-canvas');
 
 	// array of actions, used for undo and redo
 	const history = [];
@@ -17,8 +17,8 @@ $(function() {
 
 	makeGrid(width,height);
 
-	$('#newGrid').on('click', function() {
-		$('#canvas').slideUp('slow', function() {
+	$('#new-grid').on('click', function() {
+		$('#canvas-container').slideUp('slow', function() {
 			$("#size-picker").slideDown('slow');
 		});
 	});
@@ -28,7 +28,7 @@ $(function() {
 		width = Number($('#input_width').val());
 		makeGrid(width, height);
 		$('#size-picker').slideUp('slow', function() {
-			$('#canvas').slideDown('slow');
+			$('#canvas-container').slideDown('slow');
 		});
 		e.preventDefault();
 	});

@@ -22,7 +22,7 @@ h2 {
 
 #size-picker,
 #controls,
-#canvas {
+#canvas-container {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
   box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.6);
@@ -102,7 +102,7 @@ h2 {
   display: none;
 }
 
-#newGrid:after {
+#new-grid:after {
  content: "\f00a"
 }
 
@@ -175,7 +175,7 @@ input[type=number]:focus {
 /**********************************************************/
 /* Canvas */
 
-#canvas {
+#canvas-container {
   display: inline-block;
   padding: 1em;
   color: rgba(0, 0, 0, 0.4);
