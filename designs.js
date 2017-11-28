@@ -69,15 +69,13 @@ $(function() {
 	}
 
 	function startPainting(e) {
+		isPainting = true;
+		const cell = $(e.target);
 		if (tool === 'brush') {
-			isPainting = true;
 			currentAction = [];
-			const cell = $(e.target);
 			changeColor(cell, newColor);
 		}
 		if (tool === 'line') {
-			isPainting = true;
-			const cell = $(e.target);
 			[x0, y0] = cell
 						.attr('id')
 						.split('-')
@@ -92,15 +90,14 @@ $(function() {
 		if (!isPainting) {
 			return;
 		}
+		const cell = $(e.target);
 		if (tool === 'brush') {
-			const cell = $(e.target);
 			changeColor(cell, newColor);
 		}
 		if (tool === 'line') {
 			for(item of currentAction) {
 				item.cell.css('background-color', item.oldColor);
 			}
-			const cell = $(e.target);
 			const [x1, y1] = cell
 								.attr('id')
 								.split('-')
@@ -127,7 +124,6 @@ $(function() {
 		}
 		currentAction = [];
 		recursiveFill(firstCell);
-		recordCurrentAction();
 
 		function recursiveFill(cell) {
 			changeColor(cell, newColor);
