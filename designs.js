@@ -1,9 +1,15 @@
 $(function() {
 
+	// *************************************
+	// DOM elements
+
 	const canvas = $('#pixel-canvas');
 
+	// *************************************
+	// State
+
 	// array of actions, used for undo and redo
-	const history = [];
+	let history = [];
 	let momentInHistory = 0;
 	let currentAction;
 
