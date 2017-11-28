@@ -176,6 +176,13 @@ $(function() {
 		});
 		e.preventDefault();
 	});
+
+	$('#cancel').on('click', function() {
+		$('#size-picker').slideUp('slow', function() {
+			$('#canvas-container').slideDown('slow');
+		});
+	});
+
 	$('#colorPicker').on('change', function() {
 		newColor = hexToRGB($(this).val());
 	});
