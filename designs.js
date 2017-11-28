@@ -10,7 +10,13 @@ $(function() {
 
 	// array of actions, used for undo and redo
 	let history = [];
+
+	// position in the  array above
 	let momentInHistory = 0;
+
+	// list of all pixel color changes for current action
+	// array of objects with properties
+	// cell, oldColor, newColor
 	let currentAction;
 
 	let newColor = hexToRGB($('#colorPicker').val());
