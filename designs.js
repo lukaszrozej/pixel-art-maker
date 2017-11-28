@@ -47,6 +47,10 @@ $(function() {
 				.map(Number);
 	}
 
+	function cellFromCoordinates(x, y) {
+		return $('#' + x + '-' + y);
+	}
+
 	// *************************************
 	// History functions
 
@@ -130,25 +134,25 @@ $(function() {
 			changeColor(cell, newColor);
 			const [x, y] = coordinatesFromCell(cell);
 			if (x > 0) {
-				const leftCell = $('#' + (x-1) + '-' + y);
+				const leftCell = cellFromCoordinates(x-1, y);
 				if (leftCell.css('background-color') === oldColor) {
 					recursiveFill(leftCell);
 				}
 			}
 			if (x < width-1) {
-				const rightCell = $('#' + (x+1) + '-' + y);
+				const rightCell = cellFromCoordinates(x+1, y);
 				if (rightCell.css('background-color') === oldColor) {
 					recursiveFill(rightCell);
 				}
 			}
 			if (y > 0) {
-				const topCell = $('#' + x + '-' + (y-1));
+				const topCell = cellFromCoordinates(x, y-1);
 				if (topCell.css('background-color') === oldColor) {
 					recursiveFill(topCell);
 				}
 			}
 			if (y < height-1) {
-				const bottomCell = $('#' + x + '-' + (y+1));
+				const bottomCell = cellFromCoordinates(x, y+1);
 				if (bottomCell.css('background-color') === oldColor) {
 					recursiveFill(bottomCell);
 				}
@@ -167,7 +171,7 @@ $(function() {
 		let err = dx - dy;
 
 		currentAction = [];
-		changeColor($('#' + x0 + '-' + y0), newColor);
+		changeColor(cellFromCoordinates(x0, y0), newColor);
 
 		while((x0 != x1) || (y0 != y1)) {
 			let e2 = 2*err;
@@ -179,7 +183,7 @@ $(function() {
 				err += dx;
 				y0  += sy;
 			}
-			changeColor($('#' + x0 + '-' + y0), newColor);
+			changeColor(cellFromCoordinates(x0, y0), newColor);
 		}
 	}
 
