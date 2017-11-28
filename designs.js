@@ -27,6 +27,9 @@ $(function() {
 	let isPainting = false;
 	let tool = 'brush';
 
+	// coordinates of the first point on the line
+	let x0, y0;
+
 	// *************************************
 	// Helper functions
 
@@ -72,14 +75,37 @@ $(function() {
 			const cell = $(e.target);
 			changeColor(cell, newColor);
 		}
+		if (tool === 'line') {
+			isPainting = true;
+			const cell = $(e.target);
+			[x0, y0] = cell
+						.attr('id')
+						.split('-')
+						.map(Number);
+			line(x0, y0, x0, y0);
+		}
 		// to prevent firing drag events
 		return false;
 	}
 
 	function paint(e) {
-		if (isPainting) {
+		if (!isPainting) {
+			return;
+		}
+		if (tool === 'brush') {
 			const cell = $(e.target);
 			changeColor(cell, newColor);
+		}
+		if (tool === 'line') {
+			for(item of currentAction) {
+				item.cell.css('background-color', item.oldColor);
+			}
+			const cell = $(e.target);
+			const [x1, y1] = cell
+								.attr('id')
+								.split('-')
+								.map(Number);
+			line(x0, y0, x1, y1);
 		}
 	}
 
