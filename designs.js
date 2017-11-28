@@ -40,6 +40,13 @@ $(function() {
         return "rgb(" + r + ", " + g + ", " + b + ")";
 	}
 
+	function coordinatesFromCell(cell) {
+		return cell
+				.attr('id')
+				.split('-')
+				.map(Number);
+	}
+
 	// *************************************
 	// History functions
 
@@ -76,10 +83,7 @@ $(function() {
 			changeColor(cell, newColor);
 		}
 		if (tool === 'line') {
-			[x0, y0] = cell
-						.attr('id')
-						.split('-')
-						.map(Number);
+			[x0, y0] = coordinatesFromCell(cell);
 			line(x0, y0, x0, y0);
 		}
 		// to prevent firing drag events
@@ -98,10 +102,7 @@ $(function() {
 			for(item of currentAction) {
 				item.cell.css('background-color', item.oldColor);
 			}
-			const [x1, y1] = cell
-								.attr('id')
-								.split('-')
-								.map(Number);
+			const [x1, y1] = coordinatesFromCell(cell);
 			line(x0, y0, x1, y1);
 		}
 	}
@@ -127,10 +128,7 @@ $(function() {
 
 		function recursiveFill(cell) {
 			changeColor(cell, newColor);
-			const [x, y] = cell
-							.attr('id')
-							.split('-')
-							.map(Number);
+			const [x, y] = coordinatesFromCell(cell);
 			if (x > 0) {
 				const leftCell = $('#' + (x-1) + '-' + y);
 				if (leftCell.css('background-color') === oldColor) {
