@@ -74,6 +74,9 @@ $(function() {
 
 	function changeColor(cell, newColor) {
 		const oldColor = cell.css('background-color');
+		if (oldColor === newColor) {
+			return;
+		}
 		cell.css('background-color', newColor);
 		currentAction.push({cell: cell,
 							oldColor: oldColor,
