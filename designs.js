@@ -19,7 +19,7 @@ $(function() {
 	// cell, oldColor, newColor
 	let currentAction;
 
-	let newColor = hexToRGB($('#colorPicker').val());
+	let currentColor = hexToRGB($('#colorPicker').val());
 
 	let height = 20;
 	let width = 20;
@@ -75,13 +75,13 @@ $(function() {
 
 	function changeColor(cell) {
 		const oldColor = cell.css('background-color');
-		if (oldColor === newColor) {
+		if (oldColor === currentColor) {
 			return;
 		}
-		cell.css('background-color', newColor);
+		cell.css('background-color', currentColor);
 		currentAction.push({cell: cell,
 							oldColor: oldColor,
-							newColor: newColor
+							newColor: currentColor
 							});
 	}
 
@@ -128,7 +128,7 @@ $(function() {
 		}
 		const firstCell = $(e.target);
 		oldColor = firstCell.css('background-color');
-		if (newColor === oldColor) {
+		if (currentColor === oldColor) {
 			return true;
 		}
 		currentAction = [];
@@ -239,7 +239,7 @@ $(function() {
 	});
 
 	$('#colorPicker').on('change', function() {
-		newColor = hexToRGB($(this).val());
+		currentColor = hexToRGB($(this).val());
 	});
 
 	$('input[name=tool]').on('change', function() {
