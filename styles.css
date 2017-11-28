@@ -114,6 +114,10 @@ h2 {
   content: "\f043";
 }
 
+#line:after {
+  content: "\f068";
+}
+
 #undo:after {
   content: "\f112";
 }
