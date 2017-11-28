@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?6lwg1r');
+  src:  url('fonts/icomoon.eot?6lwg1r#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?6lwg1r') format('truetype'),
+    url('fonts/icomoon.woff?6lwg1r') format('woff'),
+    url('fonts/icomoon.svg?6lwg1r#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 *,
 *::after {
   box-sizing: border-box;
@@ -53,7 +64,8 @@ h2 {
   width: 70px;
   height: 70px;
   padding: 10px 10px 10px 10px;
-  font-family: 'FontAwesome';
+  /*font-family: 'FontAwesome';*/
+  font-family: 'icomoon';
   font-size: 30px;
   text-align: center;
 }
@@ -90,11 +102,11 @@ h2 {
 }
 
 .tool:hover {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .tool:checked {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
   box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.4);
 }
 
@@ -103,27 +115,34 @@ h2 {
 }
 
 #new-grid:after {
- content: "\f00a"
+ /*content: "\f00a";*/
+ content: "grid";
 }
 
 #brush:after {
-  content: "\f1fc";
+  /*content: "\f1fc";*/
+  content: "brush";
 }
 
 #fill:after {
-  content: "\f043";
+  /*content: "\f043";*/
+  content: "fill";
 }
 
 #line:after {
-  content: "\f068";
+  /*content: "\f068";*/
+  content: "line";
+  font-weight: bold;
 }
 
 #undo:after {
-  content: "\f112";
+  /*content: "\f112";*/
+  content: "undo";
 }
 
 #redo:after {
-  content: "\f064";
+  /*content: "\f064";*/
+  content: "redo";
 }
 
 /**********************************************************/
@@ -174,6 +193,7 @@ input[type=number]:focus {
   height: 3em;
   font-size: inherit;
   flex-basis: 40%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /**********************************************************/
