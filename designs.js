@@ -136,6 +136,33 @@ $(function() {
 		}
 	}
 
+	// borrowed from:
+	// https://stackoverflow.com/questions/4672279/bresenham-algorithm-in-javascript
+	function line(x0, y0, x1, y1){
+		const dx = Math.abs(x1-x0);
+		const dy = Math.abs(y1-y0);
+		const sx = (x0 < x1) ? 1 : -1;
+		const sy = (y0 < y1) ? 1 : -1;
+
+		let err = dx - dy;
+
+		currentAction = [];
+		changeColor($('#' + x0 + '-' + y0), newColor);
+
+		while((x0 != x1) || (y0 != y1)) {
+			let e2 = 2*err;
+			if (e2 > -dy) {
+				err -= dy;
+				x0  += sx;
+			}
+			if (e2 < dx) {
+				err += dx;
+				y0  += sy;
+			}
+			changeColor($('#' + x0 + '-' + y0), newColor);
+		}
+	}
+
 	// *************************************
 	// make grid function
 
@@ -202,6 +229,7 @@ $(function() {
 		}
 		$('#redo').removeAttr('disabled');
 	});
+
 	$('#redo').on('click', function() {
 		const action = history[momentInHistory];
 		for(item of action) {
@@ -213,6 +241,7 @@ $(function() {
 		}
 		$('#undo').removeAttr('disabled');
 	});
+
 	// mouseup on body to handle a situation
 	// when user drags the mouse out of the table and then releases it
 	$('body').on('mouseup', stopPainting);
