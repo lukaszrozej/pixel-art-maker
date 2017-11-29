@@ -285,13 +285,19 @@ $(function() {
 		'c': 	  '#colorPicker'
 	}
 
+	for(let [key, id] of Object.entries(keyMapping)) {
+		const element = $(id);
+		const title = element.attr('title');
+		element.attr('title', title + ' (' + key + ')');
+	}
+
 	$(document).keypress(function(e) {
 		const ctrl = e.ctrlKey ? 'ctrl+' : '';
-		const keys = ctrl + e.key;
-		const id = keyMapping[keys];
+		const key = ctrl + e.key;
+		const id = keyMapping[key];
 		$(id).click();
-		e.preventDefault();
-		e.stopPropagation();
+		// e.preventDefault();
+		// e.stopPropagation();
 	});
 
 	makeGrid(width,height);
