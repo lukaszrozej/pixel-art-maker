@@ -272,6 +272,27 @@ $(function() {
 	// when user drags the mouse out of the table and then releases it
 	$('body').on('mouseup', stopPainting);
 
+	// *************************************
+	// Keyboard
+
+	const keyMapping = {
+		'ctrl+z': '#undo',
+		'ctrl+y': '#redo',
+		'n': 	  '#new-grid',
+		'b': 	  '#brush',
+		'f': 	  '#fill',
+		'l': 	  '#line',
+		'c': 	  '#colorPicker'
+	}
+
+	$(document).keypress(function(e) {
+		const ctrl = e.ctrlKey ? 'ctrl+' : '';
+		const keys = ctrl + e.key;
+		const id = keyMapping[keys];
+		$(id).click();
+		e.preventDefault();
+		e.stopPropagation();
+	});
 
 	makeGrid(width,height);
 });
