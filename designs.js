@@ -268,6 +268,10 @@ $(function() {
 		$('#undo').removeAttr('disabled');
 	});
 
+	$('#save').on('click', function() {
+		alert('SAVE!');
+	})
+
 	// mouseup on body to handle a situation
 	// when user drags the mouse out of the table and then releases it
 	$('body').on('mouseup', stopPainting);
