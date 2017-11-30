@@ -269,7 +269,24 @@ $(function() {
 	});
 
 	$('#save').on('click', function() {
-		alert('SAVE!');
+		const c = document.createElement('canvas');
+	    c.height = height * 20;
+	    c.width = width * 20;
+	    const ctx = c.getContext('2d');
+
+	    for (let x = 0; x < width; x++) {
+			for (let y = 0; y < height; y++) {
+				const cell = cellFromCoordinates(x,y);
+				ctx.fillStyle = cell.css('background-color');
+				ctx.fillRect(x * 20, y * 20, 20, 20);
+			}
+	    }
+	    const dataURL = c.toDataURL();
+		console.log(dataURL);
+		const a = $('<a href="' + dataURL + '" download="image.png" style="display:none;">blabla</a>');
+	    $('body').append(a);
+	    a.get(0).click();
+		a.remove()
 	})
 
 	// mouseup on body to handle a situation
