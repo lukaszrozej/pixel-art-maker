@@ -14,7 +14,7 @@
 <body>
     <h1>Lab: Pixel Art Maker</h1>
 
-    <div id="controls">
+    <div id="controls" class="container">
       <button id="new-grid" class="button" title="Create new grid"><span>Create New Grid</span></button>
       <button id="undo" class="button" title="Undo" disabled><span>Undo</span></button>
       <button id="redo" class="button" title="Redo" disabled><span>Redo</span></button>
@@ -30,24 +30,39 @@
 
     </div>
 
-    <form id="size-picker">
+    <form id="size-picker" class="container dialog">
         <h2>Choose Grid Size</h2>
         <label>
           Width:
-          <input type="number" id="input_width" name="width" min="1" value="10">
+          <input type="number" id="input_width" class="input" name="width" min="1" value="10">
         </label>
         <label>
           Height:
-          <input type="number" id="input_height" name="height" min="1" value="10">
+          <input type="number" id="input_height" class="input" name="height" min="1" value="10">
         </label>
         <button type="submit" class="button">Create</button>
         <button type="button" class="button" id="cancel">Cancel</button>
     </form>
 
-    <div id="canvas-container">
+    <div id="canvas-container" class="container">
         <h2>Design Canvas</h2>
         <table id="pixel-canvas"></table>
     </div>
+
+    <div id="save-dialog" class="container dialog">
+      <h2>Choose file name and pixel size</h2>
+        <label>
+          Filename:
+          <input type="text" id="filename" class="input" name="filename" value="image">
+        </label>
+        <label>
+          Pixel Size:
+          <input type="number" id="input_height" class="input" name="height" min="1" value="20">
+        </label>
+        <button class="button" ><a href="">Save</a></button>
+        <button type="button" class="button" id="cancel">Cancel</button>
+    </div>
+
     <script src="designs.js"></script>
 </body>
 </html>

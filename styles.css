@@ -31,9 +31,7 @@ h2 {
   font-size: 1em;
 }
 
-#size-picker,
-#controls,
-#canvas-container {
+.container {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
   box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.6);
@@ -159,7 +157,7 @@ hr {
 /**********************************************************/
 /* Size Picker */
 
-#size-picker {
+.dialog {
   padding: 1em;
   width: 20em;
   margin: 0 auto;
@@ -169,10 +167,10 @@ hr {
   justify-content: space-evenly;
   font-size: 1.5em;
 
-  display: none;
+  /*display: none;*/
 }
 
-#size-picker h2 {
+.dialog h2 {
   flex-basis: 100%;
 }
 
@@ -180,31 +178,44 @@ label {
   display: inline-block;
   margin-bottom: 1em;
   width: 8em;
-  flex-basis: 40%;
+  flex-basis: 80%;
 }
 
-input[type=number] {
+.input {
   outline: none;
-  width: 3em;
   margin: 0 auto;
+  width: 15em;
   background: transparent;
   border: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0.4);
   font-size: inherit;
 }
 
-input[type=number]:hover,
-input[type=number]:focus {
+.input:hover,
+.input:focus {
   background: rgba(255, 255, 255, 0.2);
 }
 
-#size-picker .button {
+.input[type="number"] {
+  width: 3em;
+}
+
+.input[type="text"] {
+  width: 15em;
+}
+
+.dialog .button {
   display: inline-block;
   width: 8em;
   height: 3em;
   font-size: inherit;
   flex-basis: 40%;
   font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /**********************************************************/
