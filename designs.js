@@ -232,8 +232,8 @@ $(function() {
 		e.preventDefault();
 	});
 
-	$('#cancel').on('click', function() {
-		$('#size-picker').slideUp('slow', function() {
+	$('.cancel').on('click', function() {
+		$('.dialog').slideUp('slow').promise().done(function() {
 			$('#canvas-container').slideDown('slow');
 		});
 	});
@@ -282,12 +282,19 @@ $(function() {
 			}
 	    }
 	    const dataURL = c.toDataURL();
-		console.log(dataURL);
-		const a = $('<a href="' + dataURL + '" download="image.png" style="display:none;">blabla</a>');
-	    $('body').append(a);
-	    a.get(0).click();
-		a.remove()
+	    const saveLink = $('#save-link');
+	    saveLink.attr('href', dataURL);
+	    saveLink.attr('download', 'image.png');
+		$('#canvas-container').slideUp('slow', function() {
+			$("#save-dialog").slideDown('slow');
+		});
 	})
+
+	$('#save-link').on('click', function() {
+		$('.dialog').slideUp('slow').promise().done(function() {
+			$('#canvas-container').slideDown('slow');
+		});
+	});
 
 	// mouseup on body to handle a situation
 	// when user drags the mouse out of the table and then releases it

@@ -167,7 +167,7 @@ hr {
   justify-content: space-evenly;
   font-size: 1.5em;
 
-  /*display: none;*/
+  display: none;
 }
 
 .dialog h2 {
@@ -177,7 +177,7 @@ hr {
 label {
   display: inline-block;
   margin-bottom: 1em;
-  width: 8em;
+  width: 15em;
   flex-basis: 80%;
 }
 
@@ -211,11 +211,14 @@ label {
   font-size: inherit;
   flex-basis: 40%;
   font-family: 'Open Sans', sans-serif;
+  vertical-align: middle;
+  line-height: 2em;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  display: inline-block;
 }
 
 /**********************************************************/
