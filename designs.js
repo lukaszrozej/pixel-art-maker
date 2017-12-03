@@ -4,6 +4,8 @@ $(function() {
 	// DOM elements
 
 	const canvas = $('#pixel-canvas');
+	const newGridDailog = $('#size-picker');
+	const saveDialog = $('#save-dialog');
 	const dialogButtons = $('#new-grid, #save');
 
 	// *************************************
@@ -50,6 +52,20 @@ $(function() {
 
 	function cellFromCoordinates(x, y) {
 		return $('#' + x + '-' + y);
+	}
+
+	function openDialog(dialog) {
+	    dialogButtons.attr('disabled', 'disabled');
+		$('#canvas-container').slideUp('slow', function() {
+			dialog.slideDown('slow');
+		});
+	}
+
+	function closeDialog() {
+		dialogButtons.removeAttr('disabled');
+		$('.dialog').slideUp('slow').promise().done(function() {
+			$('#canvas-container').slideDown('slow');
+		});
 	}
 
 	// *************************************
@@ -218,10 +234,7 @@ $(function() {
 	// Event listeners
 
 	$('#new-grid').on('click', function() {
-	    dialogButtons.attr('disabled', 'disabled');
-		$('#canvas-container').slideUp('slow', function() {
-			$("#size-picker").slideDown('slow');
-		});
+		openDialog(newGridDailog);
 	});
 
 	$("#size-picker").submit(function(e) {
@@ -236,10 +249,7 @@ $(function() {
 	});
 
 	$('.cancel').on('click', function() {
-		dialogButtons.removeAttr('disabled');
-		$('.dialog').slideUp('slow').promise().done(function() {
-			$('#canvas-container').slideDown('slow');
-		});
+		closeDialog();
 	});
 
 	$('#colorPicker').on('change', function() {
@@ -290,17 +300,11 @@ $(function() {
 	    saveLink.attr('href', dataURL);
 	    saveLink.attr('download', 'image.png');
 
-	    dialogButtons.attr('disabled', 'disabled');
-		$('#canvas-container').slideUp('slow', function() {
-			$("#save-dialog").slideDown('slow');
-		});
+	    openDialog(saveDialog);
 	})
 
 	$('#save-link').on('click', function() {
-		dialogButtons.removeAttr('disabled');
-		$('.dialog').slideUp('slow').promise().done(function() {
-			$('#canvas-container').slideDown('slow');
-		});
+		closeDialog();
 	});
 
 	// mouseup on body to handle a situation
