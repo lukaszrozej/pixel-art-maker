@@ -321,7 +321,8 @@ $(function() {
 		'b': 	  '#brush',
 		'f': 	  '#fill',
 		'l': 	  '#line',
-		'c': 	  '#colorPicker'
+		'c': 	  '#colorPicker',
+		's': 	  '#save'
 	}
 
 	for(let [key, id] of Object.entries(keyMapping)) {
