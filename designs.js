@@ -45,6 +45,15 @@ $(function() {
         return "rgb(" + r + ", " + g + ", " + b + ")";
 	}
 
+	function rgbToHex(rgb) {
+		const [r, g, b] = rgb
+							.split(/[(,)]/)
+							.slice(1,4)
+							.map(Number)
+							.map(n => n.toString(16).padStart(2, '0'));
+		return `#${r}${g}${b}`;
+	}
+
 	function coordinatesFromCell(cell) {
 		return cell
 				.attr('id')
@@ -105,8 +114,13 @@ $(function() {
 	}
 
 	function startPainting(e) {
-		isPainting = true;
 		const cell = $(e.target);
+		if (tool === 'picker') {
+			const color = cell.css('background-color');
+			$('#colorPicker').val(rgbToHex(color));
+			return;
+		}
+		isPainting = true;
 		if (tool === 'brush') {
 			currentAction = [];
 			changeColor(cell);
