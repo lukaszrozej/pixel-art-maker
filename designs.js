@@ -8,6 +8,8 @@ $(function() {
 	const saveDialog = $('#save-dialog');
 	const dialogButtons = $('#new-grid, #save');
 
+    const saveLink = $('#save-link');
+
 	// *************************************
 	// State
 
@@ -283,27 +285,29 @@ $(function() {
 	});
 
 	$('#save').on('click', function() {
-		const c = document.createElement('canvas');
-	    c.height = height * 20;
-	    c.width = width * 20;
-	    const ctx = c.getContext('2d');
+	    openDialog(saveDialog);
+	})
+
+	$('#save-link').on('click', function() {
+		const fileName = $('#filename').val();
+		const pixelSize = $('#pixel-size').val();
+
+		const temporaryCanvas = document.createElement('canvas');
+	    temporaryCanvas.height = height * pixelSize;
+	    temporaryCanvas.width = width * pixelSize;
+	    const ctx = temporaryCanvas.getContext('2d');
 
 	    for (let x = 0; x < width; x++) {
 			for (let y = 0; y < height; y++) {
 				const cell = cellFromCoordinates(x,y);
 				ctx.fillStyle = cell.css('background-color');
-				ctx.fillRect(x * 20, y * 20, 20, 20);
+				ctx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
 			}
 	    }
-	    const dataURL = c.toDataURL();
-	    const saveLink = $('#save-link');
+	    const dataURL = temporaryCanvas.toDataURL();
 	    saveLink.attr('href', dataURL);
-	    saveLink.attr('download', 'image.png');
+	    saveLink.attr('download', fileName + '.png');
 
-	    openDialog(saveDialog);
-	})
-
-	$('#save-link').on('click', function() {
 		closeDialog();
 	});
 
