@@ -4,6 +4,7 @@ $(function() {
 	// DOM elements
 
 	const canvas = $('#pixel-canvas');
+	const dialogButtons = $('#new-grid, #save');
 
 	// *************************************
 	// State
@@ -217,6 +218,7 @@ $(function() {
 	// Event listeners
 
 	$('#new-grid').on('click', function() {
+	    dialogButtons.attr('disabled', 'disabled');
 		$('#canvas-container').slideUp('slow', function() {
 			$("#size-picker").slideDown('slow');
 		});
@@ -226,6 +228,7 @@ $(function() {
 		height = Number($('#input_height').val());
 		width = Number($('#input_width').val());
 		makeGrid(width, height);
+		dialogButtons.removeAttr('disabled');
 		$('#size-picker').slideUp('slow', function() {
 			$('#canvas-container').slideDown('slow');
 		});
@@ -233,6 +236,7 @@ $(function() {
 	});
 
 	$('.cancel').on('click', function() {
+		dialogButtons.removeAttr('disabled');
 		$('.dialog').slideUp('slow').promise().done(function() {
 			$('#canvas-container').slideDown('slow');
 		});
@@ -285,12 +289,15 @@ $(function() {
 	    const saveLink = $('#save-link');
 	    saveLink.attr('href', dataURL);
 	    saveLink.attr('download', 'image.png');
+
+	    dialogButtons.attr('disabled', 'disabled');
 		$('#canvas-container').slideUp('slow', function() {
 			$("#save-dialog").slideDown('slow');
 		});
 	})
 
 	$('#save-link').on('click', function() {
+		dialogButtons.removeAttr('disabled');
 		$('.dialog').slideUp('slow').promise().done(function() {
 			$('#canvas-container').slideDown('slow');
 		});
