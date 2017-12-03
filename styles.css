@@ -41,7 +41,7 @@ h2 {
 /* Controls */
 
 #controls {
-  width: 670px;
+  width: calc(8 * 90px);
   margin: 0 auto 1em;
   padding: 10px;
   display: flex;
@@ -145,6 +145,10 @@ h2 {
 
 #save:after {
   content: "save";
+}
+
+#picker:after {
+  content: "color"
 }
 
 hr {
