@@ -354,9 +354,10 @@ $(function() {
 		const ctrl = e.ctrlKey ? 'ctrl+' : '';
 		const key = ctrl + e.key;
 		const id = keyMapping[key];
-		$(id).click();
-		// e.preventDefault();
-		// e.stopPropagation();
+		const button = $(id)
+		if (button.attr('disabled') != 'disabled') {
+			button.click();
+		}
 	});
 
 	makeGrid(width,height);
