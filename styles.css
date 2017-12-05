@@ -188,24 +188,18 @@ label {
 .input {
   outline: none;
   margin: 0 auto;
+  padding: 0.2em 1em;
   width: 15em;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.4);
   font-size: inherit;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
 }
 
 .input:hover,
 .input:focus {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.input[type="number"] {
-  width: 3em;
-}
-
-.input[type="text"] {
-  width: 15em;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .dialog .button {
