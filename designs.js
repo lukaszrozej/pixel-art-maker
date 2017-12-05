@@ -1,4 +1,5 @@
 $(function() {
+	// 'use strict';
 
 	// *************************************
 	// DOM elements
@@ -160,7 +161,7 @@ $(function() {
 			return true;
 		}
 		const firstCell = $(e.target);
-		oldColor = firstCell.css('background-color');
+		const oldColor = firstCell.css('background-color');
 		if (currentColor === oldColor) {
 			return true;
 		}
