@@ -117,8 +117,8 @@ $(function() {
 	function startPainting(e) {
 		const cell = $(e.target);
 		if (tool === 'picker') {
-			const color = cell.css('background-color');
-			$('#colorPicker').val(rgbToHex(color));
+			currentColor = cell.css('background-color');
+			$('#colorPicker').val(rgbToHex(currentColor));
 			return;
 		}
 		isPainting = true;
