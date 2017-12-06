@@ -62,7 +62,6 @@ h2 {
   width: 70px;
   height: 70px;
   padding: 10px 10px 10px 10px;
-  /*font-family: 'FontAwesome';*/
   font-family: 'icomoon';
   font-size: 30px;
   text-align: center;
@@ -113,33 +112,27 @@ h2 {
 }
 
 #new-grid:after {
- /*content: "\f00a";*/
  content: "grid";
 }
 
 #brush:after {
-  /*content: "\f1fc";*/
   content: "brush";
 }
 
 #fill:after {
-  /*content: "\f043";*/
   content: "fill";
 }
 
 #line:after {
-  /*content: "\f068";*/
   content: "line";
   font-weight: bold;
 }
 
 #undo:after {
-  /*content: "\f112";*/
   content: "undo";
 }
 
 #redo:after {
-  /*content: "\f064";*/
   content: "redo";
 }
 
