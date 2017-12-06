@@ -25,7 +25,7 @@ $(function() {
 	// cell, oldColor, newColor
 	let currentAction;
 
-	let currentColor = hexToRGB($('#colorPicker').val());
+	let currentColor = hexToRGB($('#color-picker').val());
 
 	let height = 20;
 	let width = 20;
@@ -116,9 +116,9 @@ $(function() {
 
 	function startPainting(e) {
 		const cell = $(e.target);
-		if (tool === 'picker') {
+		if (tool === 'sample') {
 			currentColor = cell.css('background-color');
-			$('#colorPicker').val(rgbToHex(currentColor));
+			$('#color-picker').val(rgbToHex(currentColor));
 			return;
 		}
 		isPainting = true;
@@ -269,7 +269,7 @@ $(function() {
 		closeDialog();
 	});
 
-	$('#colorPicker').on('change', function() {
+	$('#color-picker').on('change', function() {
 		currentColor = hexToRGB($(this).val());
 	});
 
@@ -340,7 +340,7 @@ $(function() {
 		'b': 	  '#brush',
 		'f': 	  '#fill',
 		'l': 	  '#line',
-		'c': 	  '#colorPicker',
+		'c': 	  '#color-picker',
 		's': 	  '#save'
 	}
 
