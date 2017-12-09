@@ -1,69 +1,137 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Pixel Art Maker!</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="icon-paint-bucket" viewBox="0 0 32 33">
+                <title>paint-bucket</title>
+                <path d="M14.037 31.074c0.801 0 1.553-0.311 2.114-0.876l9.89-9.888 0.873 0.874 1.259-1.259-10.623-10.622v-8.633h-1.78v6.855l-2.923-2.924-1.259 1.259 1.151 1.151-12.006 12.005 11.186 11.183c0.563 0.565 1.315 0.876 2.117 0.876zM17.597 16.355c0 0.514-0.42 0.935-0.938 0.935-0.515 0-0.934-0.421-0.934-0.935 0-0.516 0.419-0.934 0.934-0.934 0.517 0 0.938 0.418 0.938 0.934z"></path>
+                <path d="M32.091 28.313c-0.001-2.147-3.076-5.715-3.692-6.409l-0.665-0.748-0.665 0.748c-0.618 0.693-3.697 4.262-3.697 6.409 0 2.402 1.957 4.357 4.362 4.357s4.358-1.955 4.358-4.357z"></path>
+            </symbol>
+            <symbol id="icon-line" viewBox="0 0 32 32">
+                <title>line</title>
+                <path d="M5.080 28.080c-0.159 0-0.318-0.059-0.442-0.177-0.255-0.244-0.265-0.65-0.021-0.905l21.84-22.88c0.244-0.255 0.65-0.265 0.905-0.021s0.265 0.649 0.021 0.905l-21.841 22.879c-0.126 0.132-0.294 0.198-0.463 0.198z"></path>
+            </symbol>
+            <symbol id="icon-redo" viewBox="0 0 32 32">
+                <title>redo</title>
+                <path d="M27.297 11.119l-9.287 8.933v-5.412c-2.812 0-9.974 0.062-9.974 7.426 0 3.855 2.735 7.072 6.371 7.816-5.842-0.792-10.36-5.747-10.36-11.806 0-11.256 12.025-11.351 13.963-11.351v-4.607l9.287 9.001z"></path>
+            </symbol>
+            <symbol id="icon-undo" viewBox="0 0 32 32">
+                <title>undo</title>
+                <path d="M4.687 11.119l9.287 8.933v-5.412c2.813 0 9.973 0.062 9.973 7.426 0 3.855-2.734 7.072-6.369 7.816 5.842-0.792 10.359-5.747 10.359-11.806 0-11.256-12.026-11.352-13.963-11.352v-4.606l-9.287 9.001z"></path>
+            </symbol>
+            <symbol id="icon-grid" viewBox="0 0 24 24">
+                <title>grid</title>
+                <path d="M20.016 8.016v-4.031h-4.031v4.031h4.031zM20.016 14.016v-4.031h-4.031v4.031h4.031zM20.016 20.016v-4.031h-4.031v4.031h4.031zM14.016 8.016v-4.031h-4.031v4.031h4.031zM14.016 14.016v-4.031h-4.031v4.031h4.031zM14.016 20.016v-4.031h-4.031v4.031h4.031zM8.016 8.016v-4.031h-4.031v4.031h4.031zM8.016 14.016v-4.031h-4.031v4.031h4.031zM8.016 20.016v-4.031h-4.031v4.031h4.031zM20.016 2.016c1.078 0 1.969 0.891 1.969 1.969v16.031c0 1.078-0.891 1.969-1.969 1.969h-16.031c-1.078 0-1.969-0.891-1.969-1.969v-16.031c0-1.078 0.891-1.969 1.969-1.969h16.031z"></path>
+            </symbol>
+            <symbol id="icon-palette" viewBox="0 0 24 24">
+                <title>palette</title>
+                <path d="M17.484 12c0.844 0 1.5-0.656 1.5-1.5s-0.656-1.5-1.5-1.5-1.5 0.656-1.5 1.5 0.656 1.5 1.5 1.5zM14.484 8.016c0.844 0 1.5-0.656 1.5-1.5s-0.656-1.5-1.5-1.5-1.5 0.656-1.5 1.5 0.656 1.5 1.5 1.5zM9.516 8.016c0.844 0 1.5-0.656 1.5-1.5s-0.656-1.5-1.5-1.5-1.5 0.656-1.5 1.5 0.656 1.5 1.5 1.5zM6.516 12c0.844 0 1.5-0.656 1.5-1.5s-0.656-1.5-1.5-1.5-1.5 0.656-1.5 1.5 0.656 1.5 1.5 1.5zM12 3c4.969 0 9 3.609 9 8.016 0 2.766-2.25 4.969-5.016 4.969h-1.734c-0.844 0-1.5 0.656-1.5 1.5 0 0.375 0.141 0.703 0.375 0.984s0.375 0.656 0.375 1.031c0 0.844-0.656 1.5-1.5 1.5-4.969 0-9-4.031-9-9s4.031-9 9-9z"></path>
+            </symbol>
+            <symbol id="icon-paint-brush" viewBox="0 0 28 28">
+                <title>paint-brush</title>
+                <path d="M25.234 0c1.422 0 2.734 1.062 2.734 2.547 0 0.828-0.328 1.625-0.703 2.359-1.219 2.312-5.313 9.953-7.266 11.75-0.953 0.891-2.078 1.422-3.406 1.422-2.641 0-4.797-2.25-4.797-4.875 0-1.25 0.516-2.469 1.437-3.313l9.969-9.047c0.547-0.5 1.266-0.844 2.031-0.844zM11.031 16.156c0.812 1.578 2.297 2.766 4.016 3.219l0.016 1.109c0.094 4.453-3 7.516-7.469 7.516-5.297 0-7.594-4.219-7.594-9.016 0.578 0.391 2.594 2 3.25 2 0.391 0 0.719-0.219 0.859-0.578 1.328-3.469 3.406-4.094 6.922-4.25z"></path>
+            </symbol>
+            <symbol id="icon-eyedropper" viewBox="0 0 32 32">
+                <title>eyedropper</title>
+                <path d="M30.828 1.172c-1.562-1.562-4.095-1.562-5.657 0l-5.379 5.379-3.793-3.793-4.243 4.243 3.326 3.326-14.754 14.754c-0.252 0.252-0.358 0.592-0.322 0.921h-0.008v5c0 0.552 0.448 1 1 1h5c0 0 0.083 0 0.125 0 0.288 0 0.576-0.11 0.795-0.329l14.754-14.754 3.326 3.326 4.243-4.243-3.793-3.793 5.379-5.379c1.562-1.562 1.562-4.095 0-5.657zM5.409 30h-3.409v-3.409l14.674-14.674 3.409 3.409-14.674 14.674z"></path>
+            </symbol>
+            <symbol id="icon-save" viewBox="0 0 32 32">
+                <title>save</title>
+                <path d="M23 14l-8 8-8-8h5v-12h6v12zM15 22h-15v8h30v-8h-15zM28 26h-4v-2h4v2z"></path>
+            </symbol>
+        </defs>
+    </svg>
     <h1>Lab: Pixel Art Maker</h1>
-
     <div id="controls" class="container">
-      <button id="new-grid" class="button" title="Create new grid"><span>Create New Grid</span></button>
-      <button id="undo" class="button" title="Undo" disabled><span>Undo</span></button>
-      <button id="redo" class="button" title="Redo" disabled><span>Redo</span></button>
-      <button id="save" class="button" title="Save as PNG"><span>Save as PNG</span></button>
-
-      <input type="color" id="color-picker"  class="button" title="Pick a color">
-
-      <hr>
-
-      <input type="radio" name="tool" id="brush"  class="tool" value="brush" title="Brush" checked>
-      <input type="radio" name="tool" id="fill"  class="tool" value="fill" title="Fill">
-      <input type="radio" name="tool" id="line"  class="tool" value="line" title="Line">
-      <input type="radio" name="tool" id="sample"  class="tool" value="sample" title="Sample a color">
-
+        <button id="new-grid" class="button" title="Create new grid">
+            <svg class="icon icon-grid">
+                <use xlink:href="#icon-grid"></use>
+            </svg>
+        </button>
+        <button id="undo" class="button" title="Undo" disabled><span>Undo</span>
+            <svg class="icon icon-undo">
+                <use xlink:href="#icon-undo"></use>
+            </svg>
+        </button>
+        <button id="redo" class="button" title="Redo" disabled><span>Redo</span>
+            <svg class="icon icon-undo">
+                <use xlink:href="#icon-redo"></use>
+            </svg>
+        </button>
+        <button id="save" class="button" title="Save as PNG"><span>Save as PNG</span>
+            <svg class="icon icon-undo">
+                <use xlink:href="#icon-save"></use>
+            </svg>
+        </button>
+        <input type="color" id="color-picker" class="button" title="Pick a color">
+        <hr>
+        <input type="radio" name="tool" id="brush" class="radio" value="brush" title="Brush" checked>
+        <label for="brush" class="tool">
+            <svg class="icon icon-paint-brush">
+                <use xlink:href="#icon-paint-brush"></use>
+            </svg>
+        </label>
+        <input type="radio" name="tool" id="fill" class="radio" value="fill" title="Fill">
+        <label for="fill" class="tool">
+            <svg class="icon icon-paint-bucket">
+                <use xlink:href="#icon-paint-bucket"></use>
+            </svg>
+        </label>
+        <input type="radio" name="tool" id="line" class="radio" value="line" title="Line">
+        <label for="line" class="tool">
+            <svg class="icon icon-line">
+                <use xlink:href="#icon-line"></use>
+            </svg>
+        </label>
+        <input type="radio" name="tool" id="sample" class="radio" value="sample" title="Sample a color">
+        <label for="sample" class="tool">
+            <svg class="icon icon-eyedropper">
+                <use xlink:href="#icon-eyedropper"></use>
+            </svg>
+        </label>
     </div>
-
     <form id="size-picker" class="container dialog">
         <h2>Choose Grid Size</h2>
-        <label>
-          Width:
-          <input type="number" id="input_width" class="input" name="width" min="1" value="10">
+        <label class="dialog-label">
+            Width:
+            <input type="number" id="input_width" class="input" name="width" min="1" value="10">
         </label>
-        <label>
-          Height:
-          <input type="number" id="input_height" class="input" name="height" min="1" value="10">
+        <label class="dialog-label">
+            Height:
+            <input type="number" id="input_height" class="input" name="height" min="1" value="10">
         </label>
         <button type="submit" class="button">Create</button>
         <button type="button" class="button cancel">Cancel</button>
     </form>
-
     <div id="canvas-container" class="container">
         <h2>Design Canvas</h2>
         <table id="pixel-canvas"></table>
     </div>
-
     <div id="save-dialog" class="container dialog">
-      <h2>Choose file name and pixel size</h2>
-        <label>
-          Filename:
-          <input type="text" id="filename" class="input" name="filename" value="image">
+        <h2>Choose file name and pixel size</h2>
+        <label class="dialog-label">
+            Filename:
+            <input type="text" id="filename" class="input" name="filename" value="image">
         </label>
-        <label>
-          Pixel Size:
-          <input type="number" id="pixel-size" class="input" name="height" min="1" value="20">
+        <label class="dialog-label">
+            Pixel Size:
+            <input type="number" id="pixel-size" class="input" name="height" min="1" value="20">
         </label>
         <a class="button" href="" id="save-link">Save</a>
         <button type="button" class="button cancel">Cancel</button>
     </div>
-
     <script src="designs.js"></script>
 </body>
+
 </html>

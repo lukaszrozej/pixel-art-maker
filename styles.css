@@ -1,14 +1,3 @@
-@font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?6lwg1r');
-  src:  url('fonts/icomoon.eot?6lwg1r#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?6lwg1r') format('truetype'),
-    url('fonts/icomoon.woff?6lwg1r') format('woff'),
-    url('fonts/icomoon.svg?6lwg1r#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 *,
 *::after {
   box-sizing: border-box;
@@ -41,7 +30,7 @@ h2 {
 /* Controls */
 
 #controls {
-  width: calc(8 * 90px);
+  width: calc(9 * 90px);
   margin: 0 auto 1em;
   padding: 10px;
   display: flex;
@@ -61,10 +50,7 @@ h2 {
   border-radius: 15px;
   width: 70px;
   height: 70px;
-  padding: 10px 10px 10px 10px;
-  font-family: 'icomoon';
-  font-size: 30px;
-  text-align: center;
+  padding: 10px;
 }
 
 .button,
@@ -86,23 +72,25 @@ h2 {
   background: none;
 }
 
-
-.tool {
+.radio {
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
   -ms-appearance: none;
   appearance: none;
+}
+
+.tool {
   color: rgba(0, 0, 0, 0.6);
   padding: 15px 0 10px 0;
   border: none;
 }
 
-.tool:hover {
+.radio:hover + .tool {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.tool:checked {
+.radio:checked + .tool {
   color: rgba(255, 255, 255, 0.75);
   box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.4);
 }
@@ -111,44 +99,19 @@ h2 {
   display: none;
 }
 
-#new-grid:after {
- content: "grid";
-}
-
-#brush:after {
-  content: "brush";
-}
-
-#fill:after {
-  content: "fill";
-}
-
-#line:after {
-  content: "line";
-  font-weight: bold;
-}
-
-#undo:after {
-  content: "undo";
-}
-
-#redo:after {
-  content: "redo";
-}
-
-#save:after {
-  content: "save";
-}
-
-#sample:after {
-  content: "color"
+.icon {
+  width: 30px;
+  height: 30px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
 }
 
 hr {
   width: 0;
   height: 60px;
   border: 2px solid rgba(0, 0, 0, 0.1);
-  margin: 0 10px;
+  margin: 0 0 0 10px;
 }
 
 /**********************************************************/
@@ -171,7 +134,7 @@ hr {
   flex-basis: 100%;
 }
 
-label {
+.dialog-label {
   display: inline-block;
   margin-bottom: 1em;
   width: 15em;
