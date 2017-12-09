@@ -44,7 +44,9 @@ h2 {
 .button,
 .tool {
   outline: none;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: none;
   margin: 0;
   border-radius: 15px;
@@ -82,7 +84,6 @@ h2 {
 
 .tool {
   color: rgba(0, 0, 0, 0.6);
-  padding: 15px 0 10px 0;
   border: none;
 }
 
