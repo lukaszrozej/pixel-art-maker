@@ -337,12 +337,12 @@ $(function() {
 		'ctrl+z': '#undo',
 		'ctrl+y': '#redo',
 		'n': 	  '#new-grid',
-		'b': 	  '#brush',
-		'f': 	  '#fill',
-		'l': 	  '#line',
-		'c': 	  '#color-picker',
 		's': 	  '#save',
-		'm':  	  '#sample'
+		'c': 	  '#color-picker',
+		'b': 	  '#brush-label',
+		'f': 	  '#fill-label',
+		'l': 	  '#line-label',
+		'm':  	  '#sample-label'
 	}
 
 	for(let [key, id] of Object.entries(keyMapping)) {
