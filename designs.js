@@ -8,6 +8,7 @@ $(function() {
 	const newGridDailog = $('#size-picker');
 	const saveDialog = $('#save-dialog');
 	const dialogButtons = $('#new-grid, #save');
+	const toolButtons = $('.radio');
 
     const saveLink = $('#save-link');
 
@@ -68,6 +69,7 @@ $(function() {
 
 	function openDialog(dialog) {
 	    dialogButtons.attr('disabled', 'disabled');
+	    toolButtons.attr('disabled', 'disabled');
 		$('#canvas-container').slideUp('slow', function() {
 			dialog.slideDown('slow');
 		});
@@ -75,6 +77,7 @@ $(function() {
 
 	function closeDialog() {
 		dialogButtons.removeAttr('disabled');
+		toolButtons.removeAttr('disabled');
 		$('.dialog').slideUp('slow').promise().done(function() {
 			$('#canvas-container').slideDown('slow');
 		});
