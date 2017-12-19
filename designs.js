@@ -261,10 +261,7 @@ $(function() {
 		height = Number($('#input_height').val());
 		width = Number($('#input_width').val());
 		makeGrid(width, height);
-		dialogButtons.removeAttr('disabled');
-		$('#size-picker').slideUp('slow', function() {
-			$('#canvas-container').slideDown('slow');
-		});
+		closeDialog();
 		e.preventDefault();
 	});
 
