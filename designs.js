@@ -7,8 +7,7 @@ $(function() {
 	const canvas = $('#pixel-canvas');
 	const newGridDailog = $('#size-picker');
 	const saveDialog = $('#save-dialog');
-	const dialogButtons = $('#new-grid, #save');
-	const toolButtons = $('.radio');
+	const controls = $('.control');
 
     const saveLink = $('#save-link');
 
@@ -68,16 +67,20 @@ $(function() {
 	}
 
 	function openDialog(dialog) {
-	    dialogButtons.attr('disabled', 'disabled');
-	    toolButtons.attr('disabled', 'disabled');
+	    controls.attr('disabled', 'disabled');
 		$('#canvas-container').slideUp('slow', function() {
 			dialog.slideDown('slow');
 		});
 	}
 
 	function closeDialog() {
-		dialogButtons.removeAttr('disabled');
-		toolButtons.removeAttr('disabled');
+		controls.removeAttr('disabled');
+		if (momentInHistory === 0) {
+			$('#undo').attr('disabled', 'disabled');
+		}
+		if (momentInHistory === history.length) {
+			$('#redo').attr('disabled', 'disabled');
+		}
 		$('.dialog').slideUp('slow').promise().done(function() {
 			$('#canvas-container').slideDown('slow');
 		});
